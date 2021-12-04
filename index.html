@@ -7,6 +7,56 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="src/style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="app-wrapper">
+      <div class="app-body">
+        <header>
+          <form id="search-form" class="d-flex">
+            <input
+              placeholder="Type your city in here"
+              class="form-control rounded"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              id="city-search"
+            />
+            <button class="btn btn-outline-primary" type="submit">
+              Search
+            </button>
+            <button
+              class="btn btn-outline-success"
+              id="current-btn"
+              type="button"
+            >
+              Current
+            </button>
+          </form>
+        </header>
+        <main>
+          <div class="container">
+            <h1 id="current-city">Tokyo</h1>
+            <div class="row">
+              <div class="col">
+                <img class="sunny-day" src="#" alt="sunny day icon" />
+              </div>
+              <div class="col" id="weather-info">
+                <p id="today-date">Today</p>
+                <p class="precipitation">Precipitation: 58%</p>
+                <p>Wind: 0Km/h</p>
+                <strong
+                  ><h3 class="display-2 fw-bolder" id="current-temp">
+                    16
+                  </h3></strong
+                >
+                <h3 id="celcius">°C</h3>
+                <h3>|</h3>
+                <h3 id="fahrenheit">°F</h3>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
   <script src="src/script.js"></script>
 </html>
