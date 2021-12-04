@@ -90,7 +90,6 @@ currentButton.addEventListener("click", geolocator);
 
 // CHANGE CITY AND TEMPERATURE TO SEARCHED ONE
 function showTemperatureCity(response) {
-  console.log(response.data);
   let city = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
@@ -144,6 +143,17 @@ function citySearched(event) {
 }
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", citySearched);
+
+// SEARCH FUNCTION FOR CITY PLACEHOLDER
+function search(city) {
+  let apiKey = "b015cb71b14a6b0a5f7551a9ef540747";
+  let metric = "&units=metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${metric}`;
+
+  axios.get(apiUrl).then(showTemperatureCity);
+}
+
+search("Tokyo");
 
 /////////////////////////////
 // TEMPERATURE CONVERSION CELCIUS TO FAHRENHEIT
