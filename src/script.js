@@ -27,7 +27,9 @@ todaysDate();
 function showTemperature(response) {
   let city = response.data.name;
   let temperature = Math.round(response.data.main.temp);
-
+  let description = response.data.weather[0].description;
+  let currentDescription = document.querySelector("#description");
+  currentDescription.innerHTML = description;
   let currentTemp = document.querySelector("#current-temp");
   currentTemp.innerHTML = temperature;
   let cityChange = document.querySelector("#current-city");
@@ -60,7 +62,9 @@ currentButton.addEventListener("click", geolocator);
 function showTemperatureCity(response) {
   let city = response.data.name;
   let temperature = Math.round(response.data.main.temp);
-
+  let description = response.data.weather[0].description;
+  let currentDescription = document.querySelector("#description");
+  currentDescription.innerHTML = description;
   let currentTemp = document.querySelector("#current-temp");
   currentTemp.innerHTML = temperature;
   let cityChange = document.querySelector("#current-city");
