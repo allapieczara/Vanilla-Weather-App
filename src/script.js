@@ -22,18 +22,43 @@ todaysDate();
 //////////////////////////////////
 // API FOR CURRENT LOCATION WEATHER
 
-// CHANGE TEMPERATURE TO CURRENT LOCATION'S TEMPERATURE
+// CHANGE CITY AND TEMPERATURE TO CURRENT LOCATION'S ONE
 
 function showTemperature(response) {
   let city = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
   let currentDescription = document.querySelector("#description");
-  currentDescription.innerHTML = description;
   let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = temperature;
   let cityChange = document.querySelector("#current-city");
+  let wind = document.querySelector("#wind");
+  let humidity = document.querySelector("#humidity");
+  let icon = document.querySelector("#current-icon");
+  currentDescription.innerHTML = description;
+  currentTemp.innerHTML = temperature;
   cityChange.innerHTML = city;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  humidity.innerHTML = response.data.main.humidity;
+
+  if (description == "clear sky") {
+    icon.setAttribute("src", "src/icons/clear-sky.svg");
+  } else if (description == "few clouds") {
+    icon.setAttribute("src", "src/icons/few-clouds.svg");
+  } else if (description == "scattered clouds") {
+    icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  } else if (description == "broken clouds") {
+    icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  } else if (description == "shower rain") {
+    icon.setAttribute("src", "src/icons/shower-rain.svg");
+  } else if (description == "rain") {
+    icon.setAttribute("src", "src/icons/rain.svg");
+  } else if (description == "thunderstorm") {
+    icon.setAttribute("src", "src/icons/thunderstorm.svg");
+  } else if (description == "snow") {
+    icon.setAttribute("src", "src/icons/snow.svg");
+  } else if (description == "mist") {
+    icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  }
 }
 // CALCULATE CURRENT LOCATION - API
 
@@ -58,17 +83,42 @@ function geolocator(event) {
 let currentButton = document.querySelector("#current-btn");
 currentButton.addEventListener("click", geolocator);
 
-// CHANGE CITY AND TEMPERATURE TO CURRENT LOCATION
+// CHANGE CITY AND TEMPERATURE TO SEARCHED ONE
 function showTemperatureCity(response) {
+  console.log(response.data);
   let city = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
+  let wind = document.querySelector("#wind");
   let currentDescription = document.querySelector("#description");
-  currentDescription.innerHTML = description;
   let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = temperature;
   let cityChange = document.querySelector("#current-city");
+  let humidity = document.querySelector("#humidity");
+  let icon = document.querySelector("#current-icon");
+  currentDescription.innerHTML = description;
+  currentTemp.innerHTML = temperature;
   cityChange.innerHTML = city;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  humidity.innerHTML = response.data.main.humidity;
+  if (description == "clear sky") {
+    icon.setAttribute("src", "src/icons/clear-sky.svg");
+  } else if (description == "few clouds") {
+    icon.setAttribute("src", "src/icons/few-clouds.svg");
+  } else if (description == "scattered clouds") {
+    icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  } else if (description == "broken clouds") {
+    icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  } else if (description == "shower rain") {
+    icon.setAttribute("src", "src/icons/shower-rain.svg");
+  } else if (description == "rain") {
+    icon.setAttribute("src", "src/icons/rain.svg");
+  } else if (description == "thunderstorm") {
+    icon.setAttribute("src", "src/icons/thunderstorm.svg");
+  } else if (description == "snow") {
+    icon.setAttribute("src", "src/icons/snow.svg");
+  } else if (description == "mist") {
+    icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  }
 }
 
 // FIND CURRENT CITY WEATHER - API

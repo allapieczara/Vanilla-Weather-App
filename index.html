@@ -44,24 +44,27 @@
         </header>
         <main>
           <div class="container">
-            <h1 id="current-city">Tokyo</h1>
+            <h1 id="current-city">City</h1>
             <p id="today-date">Today</p>
             <div class="row">
               <div class="col">
                 <img
-                  class="sunny-day"
-                  src="src/icons/day.svg"
+                  class="weather-icon"
+                  src="src/icons/clear-sky.svg"
                   alt="sunny day icon"
+                  id="current-icon"
                 />
               </div>
               <div class="col" id="weather-info">
-                <p class="conditions" id="description">Clear</p>
-                <p class="bottom-margin">Precipitation: 58%</p>
-                <p class="bottom-margin">Wind: 0Km/h</p>
-                <p>Humidity: 40%</p>
+                <p class="conditions" id="description">Sunny day?</p>
+
+                <p class="bottom-margin">
+                  Wind: <span id="wind">...</span>Km/h
+                </p>
+                <p>Humidity: <span id="humidity">...</span>%</p>
                 <strong
                   ><h3 class="display-2 fw-bolder" id="current-temp">
-                    16
+                    ...
                   </h3></strong
                 >
                 <h3 id="celcius">°C</h3>

@@ -55,8 +55,8 @@ footer {
   background: #fff;
 }
 
-.sunny-day {
-  width: 200px;
+.weather-icon {
+  min-width: 200px;
   display: block;
 }
 
