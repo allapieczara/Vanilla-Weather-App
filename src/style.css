@@ -10,7 +10,7 @@ body {
 h1 {
   text-align: center;
   color: rgb(75, 85, 88);
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -26,6 +26,14 @@ p {
 footer {
   font-size: 12px;
   text-align: center;
+}
+
+.conditions {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 30px;
+  display: inline;
+  color: grey;
 }
 
 .btn {
@@ -49,9 +57,10 @@ footer {
 
 .sunny-day {
   width: 200px;
+  display: block;
 }
 
-.precipitation {
+.bottom-margin {
   margin-block-end: 0px;
 }
 
@@ -60,10 +69,12 @@ footer {
 }
 
 #today-date {
-  margin-top: 2rem;
   margin-bottom: unset;
   font-style: italic;
   font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgb(108, 117, 119);
 }
 
 #celcius,
