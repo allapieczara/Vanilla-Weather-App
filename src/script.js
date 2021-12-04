@@ -153,6 +153,9 @@ let celciusTemp = null;
 function changeToFahrenheit(event) {
   let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
   let currentTemp = document.querySelector("#current-temp");
+  // REMOVE THE ACTIVE CLASS FROM THE CELCIUS LINK
+  celcius.classList.remove("active");
+  fahrenheit.classList.add("active");
   currentTemp.innerHTML = Math.round(fahrenheitTemp);
 }
 
@@ -164,6 +167,9 @@ fahrenheit.addEventListener("click", changeToFahrenheit);
 
 function changeToCelcius(event) {
   let currentTemp = document.querySelector("#current-temp");
+  // REMOVE THE ACTIVE CLASS FROM THE FAHRENHEIT LINK
+  fahrenheit.classList.remove("active");
+  celcius.classList.add("active");
   currentTemp.innerHTML = Math.round(celciusTemp);
 }
 

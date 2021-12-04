@@ -69,6 +69,16 @@ footer {
   text-align: center;
 }
 
+.weather-temp {
+  display: inline;
+}
+
+.weather-temp .active {
+  color: black;
+  text-decoration: none;
+  cursor: default;
+}
+
 #today-date {
   margin-bottom: unset;
   font-style: italic;
@@ -78,18 +88,9 @@ footer {
   color: rgb(108, 117, 119);
 }
 
-#celcius,
-#fahrenheit {
-  color: blue;
+#celcius {
   text-decoration: none;
 }
-
-#celcius:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-#fahrenheit:hover {
-  text-decoration: underline;
-  cursor: pointer;
+#fahrenheit {
+  text-decoration: none;
 }
