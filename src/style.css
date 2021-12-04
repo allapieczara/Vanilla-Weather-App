@@ -28,12 +28,13 @@ footer {
   text-align: center;
 }
 
-.conditions {
+.description {
   font-family: "Roboto", sans-serif;
   font-style: italic;
   font-size: 30px;
   display: inline;
   color: grey;
+  text-transform: capitalize;
 }
 
 .btn {

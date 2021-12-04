@@ -34,11 +34,16 @@ function showTemperature(response) {
   let wind = document.querySelector("#wind");
   let humidity = document.querySelector("#humidity");
   let icon = document.querySelector("#current-icon");
+
+  celciusTemp = response.data.main.temp;
+
   currentDescription.innerHTML = description;
   currentTemp.innerHTML = temperature;
   cityChange.innerHTML = city;
   wind.innerHTML = Math.round(response.data.wind.speed);
   humidity.innerHTML = response.data.main.humidity;
+
+  // CHANGE ICON ACCORDING TO DESCRIPTION
 
   if (description == "clear sky") {
     icon.setAttribute("src", "src/icons/clear-sky.svg");
@@ -95,11 +100,16 @@ function showTemperatureCity(response) {
   let cityChange = document.querySelector("#current-city");
   let humidity = document.querySelector("#humidity");
   let icon = document.querySelector("#current-icon");
+
+  celciusTemp = response.data.main.temp;
+
   currentDescription.innerHTML = description;
   currentTemp.innerHTML = temperature;
   cityChange.innerHTML = city;
   wind.innerHTML = Math.round(response.data.wind.speed);
   humidity.innerHTML = response.data.main.humidity;
+
+  // CHANGE ICON ACCORDING TO DESCRIPTION
   if (description == "clear sky") {
     icon.setAttribute("src", "src/icons/clear-sky.svg");
   } else if (description == "few clouds") {
@@ -134,3 +144,28 @@ function citySearched(event) {
 }
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", citySearched);
+
+/////////////////////////////
+// TEMPERATURE CONVERSION CELCIUS TO FAHRENHEIT
+
+let celciusTemp = null;
+
+function changeToFahrenheit(event) {
+  let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", changeToFahrenheit);
+
+/////////////////////////////
+// TEMPERATURE CONVERSION FAHRENHEIT TO CELCIUS
+
+function changeToCelcius(event) {
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = Math.round(celciusTemp);
+}
+
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", changeToCelcius);
