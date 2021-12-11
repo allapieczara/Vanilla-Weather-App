@@ -19,6 +19,32 @@ function todaysDate() {
 }
 todaysDate();
 
+// FORECAST
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let daysForecast = ["Fri", "Sat", "Sun", "Mon", "Tue"];
+  let forecastHTML = `<div class="row">`;
+
+  daysForecast.forEach(function (day) {
+    forecastHTML = `${forecastHTML} 
+        <div class="col">
+                <div class="weather-forecast-date">${day}</div>
+                <img src="src/icons/clear-sky.svg" alt="sunny day icon" />
+
+                <div class="weather-forecast-temp">
+                  <span class="weather-forecast-temp-max">24°</span>
+                  <span class="weather-forecast-temp-min">16°</span>
+                </div>
+        </div>
+      `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 //////////////////////////////////
 // API FOR CURRENT LOCATION WEATHER
 
@@ -154,6 +180,7 @@ function search(city) {
 }
 
 search("Tokyo");
+displayForecast();
 
 /////////////////////////////
 // TEMPERATURE CONVERSION CELCIUS TO FAHRENHEIT
