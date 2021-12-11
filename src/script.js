@@ -21,7 +21,8 @@ todaysDate();
 
 // FORECAST
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let daysForecast = ["Fri", "Sat", "Sun", "Mon", "Tue"];
   let forecastHTML = `<div class="row">`;
@@ -42,7 +43,14 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b015cb71b14a6b0a5f7551a9ef540747";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 //////////////////////////////////
@@ -89,7 +97,17 @@ function showTemperature(response) {
     icon.setAttribute("src", "src/icons/snow.svg");
   } else if (description == "mist") {
     icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  } else if (description == "overcast clouds") {
+    icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  } else if (description == "drizzle") {
+    icon.setAttribute("src", "src/icons/rain.svg");
+  } else if (description == "light snow") {
+    icon.setAttribute("src", "src/icons/light-snow.svg");
+  } else if (description == "heavy snow") {
+    icon.setAttribute("src", "src/icons/heavy-snow.svg");
   }
+
+  getForecast(response.data.coord);
 }
 // CALCULATE CURRENT LOCATION - API
 
@@ -153,7 +171,16 @@ function showTemperatureCity(response) {
     icon.setAttribute("src", "src/icons/snow.svg");
   } else if (description == "mist") {
     icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  } else if (description == "overcast clouds") {
+    icon.setAttribute("src", "src/icons/scattered-clouds.svg");
+  } else if (description == "drizzle") {
+    icon.setAttribute("src", "src/icons/rain.svg");
+  } else if (description == "light snow") {
+    icon.setAttribute("src", "src/icons/light-snow.svg");
+  } else if (description == "heavy snow") {
+    icon.setAttribute("src", "src/icons/heavy-snow.svg");
   }
+  getForecast(response.data.coord);
 }
 
 // FIND CURRENT CITY WEATHER - API
@@ -180,7 +207,6 @@ function search(city) {
 }
 
 search("Tokyo");
-displayForecast();
 
 /////////////////////////////
 // TEMPERATURE CONVERSION CELCIUS TO FAHRENHEIT
