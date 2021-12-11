@@ -31,9 +31,7 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-  console.log(forecast);
-  let weatherDesc = response.data.daily[0].weather[0].description;
-  console.log(weatherDesc);
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -98,10 +96,9 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "b015cb71b14a6b0a5f7551a9ef540747";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -263,34 +260,3 @@ function search(city) {
 }
 
 search("Tokyo");
-
-/////////////////////////////
-// TEMPERATURE CONVERSION CELCIUS TO FAHRENHEIT
-
-let celciusTemp = null;
-
-function changeToFahrenheit(event) {
-  let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
-  let currentTemp = document.querySelector("#current-temp");
-  // REMOVE THE ACTIVE CLASS FROM THE CELCIUS LINK
-  celcius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  currentTemp.innerHTML = Math.round(fahrenheitTemp);
-}
-
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", changeToFahrenheit);
-
-/////////////////////////////
-// TEMPERATURE CONVERSION FAHRENHEIT TO CELCIUS
-
-function changeToCelcius(event) {
-  let currentTemp = document.querySelector("#current-temp");
-  // REMOVE THE ACTIVE CLASS FROM THE FAHRENHEIT LINK
-  fahrenheit.classList.remove("active");
-  celcius.classList.add("active");
-  currentTemp.innerHTML = Math.round(celciusTemp);
-}
-
-let celcius = document.querySelector("#celcius");
-celcius.addEventListener("click", changeToCelcius);
